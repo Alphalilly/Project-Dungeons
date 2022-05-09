@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public LayerMask interactable;
     public int runSpeed = 5;
     public int sprintSpeed = 10;
+
+    public Transform cam;
     public enum MovementDirection
     {
         Forward,
@@ -45,21 +47,18 @@ public class PlayerController : MonoBehaviour
     [Header("Interaction")]
     [SerializeField] private float interactionRadius = 7f;
 
+    private Joystick joystick;
     private float maxInensity;
+    private Vector3 input;
     private MovementMode movementMode;
     private Rigidbody rb;
     private float moveIntensity = 0.0f;
-    private float velocityAcceleration = 40.0f;
-    private float velocityDeceleration = 40.0f;
-    private float playerRotationSpeed = 1000;
+    private float moveForce = 55.0f;
+    private float velocityAcceleration = 80.0f;
+    private float velocityDeceleration = 80.0f;
+    private float playerRotationSpeed = 4000;
     private float jumpHeight = 4f;
-    private KeyCode forwardInput = KeyCode.W;
-    private KeyCode backwardInput = KeyCode.S;
-    private KeyCode leftInput = KeyCode.A;
-    private KeyCode rightInput = KeyCode.D;
     private KeyCode jumpInput = KeyCode.Space;
-    private KeyCode sprintInput = KeyCode.LeftShift;
-    private KeyCode interactInput = KeyCode.E;
     private float actionBlend;
     private float actionBlendAcceleration = 10.0f;
     private float actionBlendDeceleration = 3.5f;
@@ -86,22 +85,14 @@ public class PlayerController : MonoBehaviour
         playerStats = transform.GetComponent<PlayerStats>();
         rb = this.GetComponent<Rigidbody>();
         movementMode = MovementMode.Idle;
+        joystick = GameObject.FindWithTag("joystick").GetComponent<FixedJoystick>();
         canMove = true;
     }
 
     private void Update()
     {
-
         //interact with object
-        if (Input.GetKeyDown(interactInput) && canMove)
-        {
-            Interact();
-        }
-        else if (Input.GetKeyDown(KeyCode.E) && !canMove)
-        {
-            canMove = true;
-            GameManager.manager.levelManager.StopReadingNote();
-        }
+
     }
 
     // Update is called once per frame
@@ -109,11 +100,17 @@ public class PlayerController : MonoBehaviour
     {
         EnableInteractionFeedbackWithinRange();
 
-        //player rotation
-        if (moveDirection != Vector3.zero)
+        Vector3 nullVelcocity = new Vector3(0, 0, 0);
+
+        //When Player is not moving
+        if (joystick.Horizontal != 0f || joystick.Vertical != 0f)
         {
-            Quaternion toRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
+            //player rotation
+            Vector3 subtractX = new Vector3(0, rb.velocity.y, 0);
+
+            Quaternion toRotation = Quaternion.LookRotation(rb.velocity - subtractX, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, playerRotationSpeed * Time.deltaTime);
+
         }
 
         //Cam movement/placement
@@ -161,6 +158,20 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void ToggleInteraction()
+    {
+        if (canMove)
+        {
+            Interact();
+        }
+
+        else if (!canMove)
+        {
+            canMove = true;
+            GameManager.manager.levelManager.StopReadingNote();
+        }
+    }
+
     private void OnDrawGizmosSelected()
     {
         //interaction range
@@ -179,29 +190,21 @@ public class PlayerController : MonoBehaviour
 
     private void UpdatePlayerInput()
     {
-        if (Input.GetKey(forwardInput) == true) { Move(MovementDirection.Forward); }
-        if (Input.GetKey(backwardInput) == true) { Move(MovementDirection.Backward); }
-        if (Input.GetKey(rightInput) == true) { Move(MovementDirection.Right); }
-        if (Input.GetKey(leftInput) == true) { Move(MovementDirection.Left); }
-        moveDirection.Normalize();
-        transform.Translate(moveDirection * moveIntensity * Time.deltaTime, Space.World);
+        Move();
 
         //blocking
-        if (Input.GetMouseButton(blockButton) == true) { ActivateBlock(); }
         if (!IsBlocking()) { StopBlocking(); }
 
         //attacking
-        if (Input.GetMouseButton(attackButton)){ ActivateAttack(); }
-        if(!IsAttacking()) {StopAttacking(); }
+        if (!IsAttacking()) { StopAttacking(); }
 
         //movemonet/sprinting
-        if (Input.GetKey(sprintInput)) { Sprint(); }
 
         //jumping
-        //if (Input.GetKey(jumpInput)) { Jump(); }
+        if (Input.GetKey(jumpInput)) { Jump(); }
 
         //checking to be idle
-        else if (IsMoving() == false) { moveDirection = Vector3.zero; movementMode = MovementMode.Idle; }
+        else if (IsMoving() == false) { movementMode = MovementMode.Idle; }
     }
 
     private void UpdateWeaponAnimStates(string weaponName)
@@ -289,7 +292,7 @@ public class PlayerController : MonoBehaviour
                 }
                 else if (distance <= r && !interactable.FeedbackEnabled)
                 {
-                    Physics.IgnoreCollision(this.transform.GetComponent<BoxCollider>(), col, true);
+                    Physics.IgnoreCollision(this.transform.GetComponent<CapsuleCollider>(), col, true);
 
                     interactable.EnableFeedback();
                 }
@@ -311,16 +314,29 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Move(MovementDirection direction)
+    private void Move()
     {
         if (canMove == false) { return; }
 
-        if (direction == MovementDirection.Forward) { moveDirection += new Vector3(-1, 0, 1); }
-        if (direction == MovementDirection.Backward) { moveDirection += new Vector3(1, 0, -1); }
-        if (direction == MovementDirection.Right) { moveDirection += new Vector3(1, 0, 1); }
-        if (direction == MovementDirection.Left) { moveDirection += new Vector3(-1, 0, -1); }
+        //--------------------------Mobile Movement----------------------------------
 
-        if (Input.GetKey(sprintInput) == true) { return; }
+        // Input based on camera position
+        input = new Vector3(joystick.Horizontal, 0, joystick.Vertical);
+
+        /*rb.velocity += (camForward * input.z + camRight * input.x) * speed * Time.deltaTime * moveForce;*/
+        Vector3 movement = Quaternion.Euler(0, cam.transform.eulerAngles.y, 0) * 
+        new Vector3(input.x, input.y, input.z) * moveIntensity * moveForce * Time.deltaTime;
+
+        //Lock Vertual Joystick
+        if (joystick.Horizontal > 0.5) rb.velocity = movement;
+        if (joystick.Horizontal < -0.5) rb.velocity = movement;
+        if (joystick.Vertical > 0.5) rb.velocity = movement;
+        if (joystick.Vertical < -0.5) rb.velocity = movement;
+
+        rb.AddForce(0, -velocityAcceleration, 0);
+        //----------------------------------------------------------------------------
+
+        if (movementMode == MovementMode.Sprinting) { return; }
         if (movementMode == MovementMode.Jumping) { return; }
         if (isGrounded() == false) { return; }
 
@@ -329,17 +345,17 @@ public class PlayerController : MonoBehaviour
 
     private bool IsMoving()
     {
-        if (Input.GetKey(forwardInput) == true) { return true; }
-        if (Input.GetKey(backwardInput) == true) { return true; }
-        if (Input.GetKey(rightInput) == true) { return true; }
-        if (Input.GetKey(leftInput) == true) { return true; }
+        if (joystick.Vertical > 0.5) { return true; }
+        if (joystick.Vertical < -0.5) { return true; }
+        if (joystick.Horizontal > 0.5) { return true; }
+        if (joystick.Horizontal < -0.5) { return true; }
         if (movementMode == MovementMode.Jumping) { return true; }
         if (isGrounded() == false) { return true; }
 
         return false;
     }
 
-    private void Sprint()
+    public void Sprint()
     {
         if (!IsMoving()) { return; }
         if (movementMode == MovementMode.Jumping) { return; }
@@ -348,7 +364,13 @@ public class PlayerController : MonoBehaviour
         if (IsBlocking()) { movementMode = MovementMode.Running; return; }
         if (playerStats.inWater) { movementMode = MovementMode.Running; return; }
 
+        Debug.Log("Sprinting");
         movementMode = MovementMode.Sprinting;
+    }
+
+    public void StopSprint()
+    {
+        movementMode = MovementMode.Running;
     }
 
     private void Jump()
@@ -361,7 +383,7 @@ public class PlayerController : MonoBehaviour
         jumpTimer = Time.time + jumpTimeDuration;
     }
 
-    private void ActivateAttack()
+    public void ActivateAttack()
     {
         if (actionBlend >= 1) { return; }
         if (Time.time <= animationAttackTiming) { return; }
@@ -416,7 +438,10 @@ public class PlayerController : MonoBehaviour
     
     public bool IsBlocking()
     {
-        if (Input.GetMouseButton(blockButton) == true) { return true; }
+        if (animator.GetBool("Blocking") == true)
+        {
+            return true;
+        }
 
         return false;
     }
