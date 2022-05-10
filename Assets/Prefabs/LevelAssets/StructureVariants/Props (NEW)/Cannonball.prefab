@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 5103434157887510448}
   - component: {fileID: 8177641674239236117}
   - component: {fileID: 6239779681481338079}
+  - component: {fileID: 2469547558122130183}
   m_Layer: 0
   m_Name: Cannonball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &5103434157887510448
 Transform:
@@ -81,3 +82,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &2469547558122130183
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5591459727369997578}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 4.329361
+  m_Height: 8.828356
+  m_Direction: 1
+  m_Center: {x: -0.00000023841858, y: 0, z: 0.00000071525574}

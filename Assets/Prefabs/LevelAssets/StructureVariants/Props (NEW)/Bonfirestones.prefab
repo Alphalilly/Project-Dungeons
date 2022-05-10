@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 6181396637870784222}
   - component: {fileID: 7090742690653663611}
   - component: {fileID: 5009013929587443121}
+  - component: {fileID: 8189335346044568093}
   m_Layer: 0
   m_Name: Bonfirestones
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &6181396637870784222
 Transform:
@@ -81,3 +82,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8189335346044568093
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6810405608964269156}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 86.48375, y: 8.540068, z: 87.90576}
+  m_Center: {x: -0.6273117, y: 3.5576105, z: -0.69522285}

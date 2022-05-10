@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 9196078231121404300}
   - component: {fileID: 5201890635522420265}
   - component: {fileID: 8058105976046115555}
+  - component: {fileID: 4931122700727029267}
   m_Layer: 0
   m_Name: BBQChicken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &9196078231121404300
 Transform:
@@ -81,3 +82,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4931122700727029267
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8418591927942904630}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 14.557184, y: 16.141474, z: 45.793713}
+  m_Center: {x: -0.00000047683716, y: -0.101389885, z: -13.496588}

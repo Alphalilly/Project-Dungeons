@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 2803526760238191552}
   - component: {fileID: 1245239976850070629}
   - component: {fileID: 3937004108834367663}
+  - component: {fileID: 8999746170855702102}
   m_Layer: 0
   m_Name: Ruby
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &2803526760238191552
 Transform:
@@ -81,3 +82,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &8999746170855702102
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3288736106786113914}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 20.24052
+  m_Height: 29.811296
+  m_Direction: 1
+  m_Center: {x: -1.3540249, y: -2.1117163, z: 0.00000667572}

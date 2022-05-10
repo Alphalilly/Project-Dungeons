@@ -1,5 +1,33 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!64 &6945458431988670903
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5765786289226691917}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1593924051644292288, guid: c8dc9543ea9dcb542aa859f89999e307, type: 3}
+--- !u!64 &3996555077376702518
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8944402557289136134}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1566238204881424938, guid: c8dc9543ea9dcb542aa859f89999e307, type: 3}
 --- !u!1001 &283823462763781969
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -59,6 +87,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 871b9c17ef1a1cb43baa1fbf07690371, type: 2}
+    - target: {fileID: -3173797508030109156, guid: c8dc9543ea9dcb542aa859f89999e307, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c8dc9543ea9dcb542aa859f89999e307, type: 3}
       propertyPath: m_Name
       value: StoneFloorRoomVar6 Variant
@@ -111,5 +143,19 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9210056208141279063, guid: c8dc9543ea9dcb542aa859f89999e307, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8dc9543ea9dcb542aa859f89999e307, type: 3}
+--- !u!1 &5765786289226691917 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -3173797508030109156, guid: c8dc9543ea9dcb542aa859f89999e307, type: 3}
+  m_PrefabInstance: {fileID: 283823462763781969}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8944402557289136134 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9210056208141279063, guid: c8dc9543ea9dcb542aa859f89999e307, type: 3}
+  m_PrefabInstance: {fileID: 283823462763781969}
+  m_PrefabAsset: {fileID: 0}

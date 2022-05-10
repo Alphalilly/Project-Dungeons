@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 5411583437911121594}
   - component: {fileID: 8986394168198385951}
   - component: {fileID: 6580571232378004949}
+  - component: {fileID: 2926209728163113037}
   m_Layer: 0
   m_Name: BonFireBBQ
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &5411583437911121594
 Transform:
@@ -81,3 +82,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2926209728163113037
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4634800894941332480}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 93.18596, y: 62.372726, z: 87.90576}
+  m_Center: {x: 0.25596428, y: 25.03386, z: -0.69522285}

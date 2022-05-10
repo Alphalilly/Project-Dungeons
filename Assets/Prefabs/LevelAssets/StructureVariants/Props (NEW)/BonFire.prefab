@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 3969906530992540995}
   - component: {fileID: 51839093966848742}
   - component: {fileID: 2836383931695085100}
+  - component: {fileID: 5465049929767235986}
   m_Layer: 0
   m_Name: BonFire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &3969906530992540995
 Transform:
@@ -81,3 +82,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5465049929767235986
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4349386903567472633}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 86.48374, y: 43.817528, z: 87.90577}
+  m_Center: {x: -0.6273079, y: 15.054248, z: -0.69521713}

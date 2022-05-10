@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 3698236208518985241}
   - component: {fileID: 359476159467878844}
   - component: {fileID: 2529310915625291126}
+  - component: {fileID: 642053420611792829}
   m_Layer: 0
   m_Name: LargeRockFlatVar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &3698236208518985241
 Transform:
@@ -81,3 +82,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &642053420611792829
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4042286949530250403}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4969483185658474669, guid: bf48bfeaded616a448f990e4652f2e4d, type: 3}

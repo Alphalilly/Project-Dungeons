@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 3452145486738155980}
   - component: {fileID: 1749551229789398633}
   - component: {fileID: 4585597747219993251}
+  - component: {fileID: 2003307177494116384}
   m_Layer: 0
   m_Name: TreasureCrate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &3452145486738155980
 Transform:
@@ -81,3 +82,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2003307177494116384
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2640143657869423478}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 256.87607, y: 92.63895, z: 135.66759}
+  m_Center: {x: 0, y: 46.602707, z: -0.0000076293945}
