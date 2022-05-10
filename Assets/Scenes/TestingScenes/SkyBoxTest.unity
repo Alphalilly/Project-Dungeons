@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 0628b3cbfcf658548b92fc70d2a2263f, type: 2}
+  m_LightingDataAsset: {fileID: 0}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 5479b4cea0a1d6a49bb4c31403498849, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -2306,10 +2306,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2056850717761709815, guid: c0cd4cf10a3b0e54792ba0ce28f32d2a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4907051591552660401, guid: c0cd4cf10a3b0e54792ba0ce28f32d2a, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190539303994158750, guid: c0cd4cf10a3b0e54792ba0ce28f32d2a, type: 3}
+      propertyPath: m_Range
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190539303994158750, guid: c0cd4cf10a3b0e54792ba0ce28f32d2a, type: 3}
+      propertyPath: m_Intensity
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190539303994158750, guid: c0cd4cf10a3b0e54792ba0ce28f32d2a, type: 3}
+      propertyPath: m_Shadows.m_Type
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7885668137953248612, guid: c0cd4cf10a3b0e54792ba0ce28f32d2a, type: 3}
