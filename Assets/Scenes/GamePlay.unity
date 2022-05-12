@@ -886,6 +886,22 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1190629151505450617, guid: 5bffb16854ed9f64c934b60164de3dbf, type: 3}
+      propertyPath: endStructure
+      value: 
+      objectReference: {fileID: 8686734736001119147, guid: 54354f18c02cb2f4ca5113b6a1074238, type: 3}
+    - target: {fileID: 1190629151505450617, guid: 5bffb16854ed9f64c934b60164de3dbf, type: 3}
+      propertyPath: startStructure
+      value: 
+      objectReference: {fileID: 7080715538487735806, guid: 4831d14e3a3face4eb6ecdaad2c0f477, type: 3}
+    - target: {fileID: 1190629151505450617, guid: 5bffb16854ed9f64c934b60164de3dbf, type: 3}
+      propertyPath: roomVariations.Array.data[0]
+      value: 
+      objectReference: {fileID: 25285071770149108, guid: 6560f3ff76f605545989389f3b8033a2, type: 3}
+    - target: {fileID: 1190629151505450617, guid: 5bffb16854ed9f64c934b60164de3dbf, type: 3}
+      propertyPath: roomVariations.Array.data[1]
+      value: 
+      objectReference: {fileID: 1257184842525055911, guid: 932690c9eaf2970408ea71b80c149879, type: 3}
     - target: {fileID: 2028116439314968009, guid: 5bffb16854ed9f64c934b60164de3dbf, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

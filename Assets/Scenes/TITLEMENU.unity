@@ -436,6 +436,10 @@ PrefabInstance:
         animation clip 'Jumping'\n\tFrom animation clip 'Jump'\n\tFrom animation
         clip 'Falling Idle'\n\tFrom animation clip 'Punching'"
       objectReference: {fileID: 0}
+    - target: {fileID: 1190629151505450617, guid: 5bffb16854ed9f64c934b60164de3dbf, type: 3}
+      propertyPath: structureSpacing
+      value: 19
+      objectReference: {fileID: 0}
     - target: {fileID: 1221312156470026544, guid: 5bffb16854ed9f64c934b60164de3dbf, type: 3}
       propertyPath: m_Layer
       value: 3
