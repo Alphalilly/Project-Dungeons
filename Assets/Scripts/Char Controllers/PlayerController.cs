@@ -8,6 +8,10 @@ public class PlayerController : MonoBehaviour
     public GameObject gameCamera;
     public LayerMask body;
     public LayerMask interactable;
+    public GameObject stepRayUpper;
+    public GameObject stepRayLower;
+    public float stepHeight = 0.3f;
+    public float stepSmooth = 0.1f;
     public int runSpeed = 5;
     public int sprintSpeed = 10;
 
@@ -64,6 +68,7 @@ public class PlayerController : MonoBehaviour
     private float actionBlendDeceleration = 3.5f;
     private float animationAttackTiming;
     private Vector3 moveDirection;
+    private Vector3 targetPosition;
     private float jumpTimeDuration = 1.34f;
     private float jumpTimer;
     private float rayRange = 1f;
@@ -87,6 +92,8 @@ public class PlayerController : MonoBehaviour
         movementMode = MovementMode.Idle;
         joystick = GameObject.FindWithTag("joystick").GetComponent<FixedJoystick>();
         canMove = true;
+
+        stepRayUpper.transform.position = new Vector3(stepRayUpper.transform.position.x, stepHeight, stepRayUpper.transform.position.z);
     }
 
     private void Update()
@@ -98,6 +105,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        StepClimb();
+
         EnableInteractionFeedbackWithinRange();
 
         Vector3 nullVelcocity = new Vector3(0, 0, 0);
@@ -451,6 +460,8 @@ public class PlayerController : MonoBehaviour
         /// Make sure body Layermask is set in PlayerController Inspector Body
         if (Physics.Raycast(this.transform.position, -this.transform.up, out rayHit, rayRange, ~body)) 
         {
+            Vector3 rayCastHitPoint = rayHit.point;
+            targetPosition.y = rayCastHitPoint.y;
             return true;
         }
         return false;
@@ -462,5 +473,21 @@ public class PlayerController : MonoBehaviour
         { 
             movementMode = MovementMode.Idle; 
         }
+    }
+
+    void StepClimb()
+    {
+        RaycastHit hitLower;
+        if (Physics.Raycast(stepRayLower.transform.position, transform.TransformDirection(Vector3.forward), out hitLower, 1f))
+        {
+            Debug.Log("lowerray hit");
+            RaycastHit hitUpper;
+            if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(Vector3.forward), out hitUpper, 1.5f))
+            {
+                Debug.Log("upperray hit");
+                rb.position -= new Vector3(0f, -stepSmooth, 0f);
+            }
+        }
+
     }
 }
