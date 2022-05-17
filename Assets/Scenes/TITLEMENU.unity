@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!4 &57231723 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4395637265919071664, guid: 5bffb16854ed9f64c934b60164de3dbf, type: 3}
-  m_PrefabInstance: {fileID: 991280578}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &137099186 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6304403217799058920, guid: 5bffb16854ed9f64c934b60164de3dbf, type: 3}
@@ -435,6 +430,10 @@ PrefabInstance:
         animation clip 'Jog Forward'\n\tFrom animation clip 'Standard Run'\n\tFrom
         animation clip 'Jumping'\n\tFrom animation clip 'Jump'\n\tFrom animation
         clip 'Falling Idle'\n\tFrom animation clip 'Punching'"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1190629151505450617, guid: 5bffb16854ed9f64c934b60164de3dbf, type: 3}
+      propertyPath: structureSpacing
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 1221312156470026544, guid: 5bffb16854ed9f64c934b60164de3dbf, type: 3}
       propertyPath: m_Layer
@@ -1139,7 +1138,7 @@ PrefabInstance:
     - target: {fileID: 4395637265828225256, guid: 5bffb16854ed9f64c934b60164de3dbf, type: 3}
       propertyPath: cam
       value: 
-      objectReference: {fileID: 57231723}
+      objectReference: {fileID: 1738154173}
     - target: {fileID: 4395637265828225256, guid: 5bffb16854ed9f64c934b60164de3dbf, type: 3}
       propertyPath: animator
       value: 
@@ -2160,6 +2159,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1738154173 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9003780393441115039, guid: 5bffb16854ed9f64c934b60164de3dbf, type: 3}
+  m_PrefabInstance: {fileID: 991280578}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1790433453 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5651533951722970805, guid: 5bffb16854ed9f64c934b60164de3dbf, type: 3}
