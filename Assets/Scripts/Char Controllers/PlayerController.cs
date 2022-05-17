@@ -221,15 +221,14 @@ public class PlayerController : MonoBehaviour
         //tried to use switch statement here, was not allow due to emun.ToString() for some reason...... VVVV
                                                                                                     /// strings arent inherently constant switch statements require that cases are
         if (weaponName == PlayerWeaponIndex.Knuckles.ToString())
-        { animator.SetFloat("WeaponAnimState", (int)PlayerWeaponIndex.Knuckles); attackAnimDuration = 0.34f; return; }
+        { animator.SetFloat("WeaponAnimState", (int)PlayerWeaponIndex.Knuckles); attackAnimDuration = 0.30f; return; }
         else if (weaponName == PlayerWeaponIndex.Dagger.ToString())
-        { animator.SetFloat("WeaponAnimState", (int)PlayerWeaponIndex.Dagger); attackAnimDuration = 0.34f; return; }
+        { animator.SetFloat("WeaponAnimState", (int)PlayerWeaponIndex.Dagger); attackAnimDuration = 0.30f; return; }
         else if (weaponName == PlayerWeaponIndex.Cutlass.ToString())
-        { animator.SetFloat("WeaponAnimState", (int)PlayerWeaponIndex.Cutlass); attackAnimDuration = 0.34f; return; }
+        { animator.SetFloat("WeaponAnimState", (int)PlayerWeaponIndex.Cutlass); attackAnimDuration = 0.30f; return; }
         else if (weaponName == PlayerWeaponIndex.Club.ToString())
         { animator.SetFloat("WeaponAnimState", (int)PlayerWeaponIndex.Club); attackAnimDuration = 0.8f; return; }
-        animator.SetFloat("WeaponAnimState", (int)PlayerWeaponIndex.Dagger);
-        attackAnimDuration = 0.34f;
+        animator.SetFloat("WeaponAnimState", (int)PlayerWeaponIndex.Dagger); attackAnimDuration = 0.30f;
     }
 
     public void Interact()
@@ -440,8 +439,8 @@ public class PlayerController : MonoBehaviour
 
     public void StopBlocking()
     {
-        if (IsAttacking()) { return; }
-        actionBlend -= Time.deltaTime * actionBlendDeceleration;
+        /*if (IsAttacking()) { return; }
+        actionBlend -= Time.deltaTime * actionBlendDeceleration;*/
         animator.SetBool("Blocking", false);
     }
     
@@ -480,11 +479,9 @@ public class PlayerController : MonoBehaviour
         RaycastHit hitLower;
         if (Physics.Raycast(stepRayLower.transform.position, transform.TransformDirection(Vector3.forward), out hitLower, 1f))
         {
-            Debug.Log("lowerray hit");
             RaycastHit hitUpper;
             if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(Vector3.forward), out hitUpper, 1.5f))
             {
-                Debug.Log("upperray hit");
                 rb.position -= new Vector3(0f, -stepSmooth, 0f);
             }
         }
