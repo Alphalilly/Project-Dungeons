@@ -327,9 +327,13 @@ public class PlayerController : MonoBehaviour
         if (canMove == false) { return; }
 
         //--------------------------Mobile Movement----------------------------------
+        Vector3 falseGravity;
+        //False Gravity
+        if (isGrounded() == false) falseGravity = new Vector3(0, -2, 0);
+        else falseGravity = new Vector3(0, 0, 0);
 
         // Input based on camera position
-        input = new Vector3(joystick.Horizontal, 0, joystick.Vertical);
+        input = new Vector3(joystick.Horizontal, falseGravity.y, joystick.Vertical);
 
         /*rb.velocity += (camForward * input.z + camRight * input.x) * speed * Time.deltaTime * moveForce;*/
         Vector3 movement = Quaternion.Euler(0, cam.transform.eulerAngles.y, 0) * 
@@ -341,7 +345,8 @@ public class PlayerController : MonoBehaviour
         if (joystick.Vertical > 0.5) rb.velocity = movement;
         if (joystick.Vertical < -0.5) rb.velocity = movement;
 
-        rb.AddForce(0, -velocityAcceleration, 0);
+        rb.AddForce(new Vector3(0, falseGravity.y, 0));
+        
         //----------------------------------------------------------------------------
 
         if (movementMode == MovementMode.Sprinting) { return; }
