@@ -46,7 +46,7 @@ Transform:
   - {fileID: 7096127848725468114}
   - {fileID: 3623015199681793967}
   m_Father: {fileID: 7948682941827467349}
-  m_RootOrder: 1
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &2325126065824171778
 GameObject:
@@ -78,7 +78,7 @@ Transform:
   - {fileID: 5095024973019212516}
   - {fileID: 4202634362979113158}
   m_Father: {fileID: 7948682941827467349}
-  m_RootOrder: 35
+  m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4671093128679955625
 MonoBehaviour:
@@ -129,7 +129,7 @@ Transform:
   - {fileID: 4711437896881230854}
   - {fileID: 3821330450310032035}
   m_Father: {fileID: 7948682941827467349}
-  m_RootOrder: 36
+  m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &292897408225058555
 PrefabInstance:
@@ -1626,6 +1626,38 @@ PrefabInstance:
     - target: {fileID: 801511874342968008, guid: dc2864e63e572bc43b4b7003a11a7aa6, type: 3}
       propertyPath: m_Name
       value: DirtHallVar2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433228439829612444, guid: dc2864e63e572bc43b4b7003a11a7aa6, type: 3}
+      propertyPath: m_RootOrder
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433228439829612444, guid: dc2864e63e572bc43b4b7003a11a7aa6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433228439829612444, guid: dc2864e63e572bc43b4b7003a11a7aa6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433228439829612444, guid: dc2864e63e572bc43b4b7003a11a7aa6, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6117333109628098466, guid: dc2864e63e572bc43b4b7003a11a7aa6, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6117333109628098466, guid: dc2864e63e572bc43b4b7003a11a7aa6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6117333109628098466, guid: dc2864e63e572bc43b4b7003a11a7aa6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6117333109628098466, guid: dc2864e63e572bc43b4b7003a11a7aa6, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc2864e63e572bc43b4b7003a11a7aa6, type: 3}
