@@ -17,10 +17,10 @@ MonoBehaviour:
   categories: []
   uiBounds:
     serializedVersion: 2
-    x: 941
+    x: 653
     y: -190
-    width: 426
-    height: 1411
+    width: 714
+    height: 1429
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -31,7 +31,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d4c867f6b72b714dbb5fd1780afe208, type: 3}
-  m_Name: Sparkle
+  m_Name: Sparkle 1
   m_EditorClassIdentifier: 
   m_UIIgnoredErrors: []
   m_Parent: {fileID: 0}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_ImportDependencies: []
   m_GraphVersion: 6
   m_ResourceVersion: 1
-  m_saved: 1
+  m_saved: 0
   m_SubgraphDependencies: []
   m_CategoryPath: 
 --- !u!2058629511 &8926484042661614527
@@ -57,7 +57,7 @@ VisualEffectResource:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Sparkle
+  m_Name: Sparkle 1
   m_Graph: {fileID: 114350483966674976}
   m_Infos:
     m_RendererSettings:
@@ -1275,7 +1275,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Gradient, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"colorKeys":[{"color":{"r":1.0,"g":1.0,"b":1.0,"a":1.0},"time":0.0},{"color":{"r":0.12156862765550614,"g":0.9960784316062927,"b":0.6188296675682068,"a":1.0},"time":0.22647440433502198},{"color":{"r":0.04313723370432854,"g":0.9960784316062927,"b":0.4528152346611023,"a":1.0},"time":0.5088273286819458},{"color":{"r":0.03921566903591156,"g":0.9960784316062927,"b":0.17236165702342988,"a":1.0},"time":0.7911803126335144},{"color":{"r":0.26501911878585818,"g":0.9960784316062927,"b":0.0,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":1.0,"time":0.0},{"alpha":1.0,"time":1.0}],"gradientMode":0}'
+      m_SerializableObject: '{"colorKeys":[{"color":{"r":1.0,"g":1.0,"b":1.0,"a":1.0},"time":0.0},{"color":{"r":0.9960784912109375,"g":0.6745098233222961,"b":0.12156863510608673,"a":1.0},"time":0.22647440433502198},{"color":{"r":0.9960784912109375,"g":0.5686274766921997,"b":0.04313725605607033,"a":1.0},"time":0.5088273286819458},{"color":{"r":0.9960784912109375,"g":0.5333333611488342,"b":0.03921568766236305,"a":1.0},"time":0.7911803126335144},{"color":{"r":0.9960784912109375,"g":0.23137256503105164,"b":0.0,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":1.0,"time":0.0},{"alpha":1.0,"time":1.0}],"gradientMode":0}'
     m_Space: 2147483647
   m_Property:
     name: Color
