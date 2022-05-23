@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7716554064282987349}
   - component: {fileID: 2694394324889384116}
   - component: {fileID: 3872086585019406938}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ChickenInteract
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,8 +123,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c65a64333a7644ea1c0fdb5a18162d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFloatingObject: 0
-  itemType: {fileID: 0}
+  isFloatingObject: 1
+  itemType: {fileID: 11400000, guid: ce15a791467e45a4e94725bf502f4a52, type: 2}
   stationType: {fileID: 0}
 --- !u!1 &5355082604594758705
 GameObject:
@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 3240857189359488337}
   - component: {fileID: 2414722676171757175}
   - component: {fileID: 1325285696163687113}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sparkle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,7 +245,7 @@ GameObject:
   m_Component:
   - component: {fileID: 379170554511736484}
   - component: {fileID: 5100873034590524364}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Point Light (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -338,6 +338,10 @@ PrefabInstance:
     - target: {fileID: 8418591927942904630, guid: 6dbaa1f999440114c88de817bac912c4, type: 3}
       propertyPath: m_Name
       value: BBQChicken
+      objectReference: {fileID: 0}
+    - target: {fileID: 8418591927942904630, guid: 6dbaa1f999440114c88de817bac912c4, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9196078231121404300, guid: 6dbaa1f999440114c88de817bac912c4, type: 3}
       propertyPath: m_RootOrder

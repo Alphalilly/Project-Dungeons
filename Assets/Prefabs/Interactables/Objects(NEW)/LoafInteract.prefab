@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2946195139144386932}
   - component: {fileID: 8903195176670539867}
   - component: {fileID: 3517356822138675875}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sparkle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6336259038626911336}
   - component: {fileID: 1206581907010590240}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Point Light (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -214,7 +214,7 @@ GameObject:
   - component: {fileID: 488846999418156657}
   - component: {fileID: 6530564811594794348}
   - component: {fileID: 4761342910100529195}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LoafInteract
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFloatingObject: 0
-  itemType: {fileID: 0}
+  itemType: {fileID: 11400000, guid: 405d909a8c5bbec4a9a42203b54d949c, type: 2}
   stationType: {fileID: 0}
 --- !u!1001 &3765731999998865653
 PrefabInstance:
@@ -382,6 +382,10 @@ PrefabInstance:
     - target: {fileID: 6660477435072138943, guid: cbbc94b73f099cc418a7f1152580be85, type: 3}
       propertyPath: m_Name
       value: Loaf
+      objectReference: {fileID: 0}
+    - target: {fileID: 6660477435072138943, guid: cbbc94b73f099cc418a7f1152580be85, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbbc94b73f099cc418a7f1152580be85, type: 3}
