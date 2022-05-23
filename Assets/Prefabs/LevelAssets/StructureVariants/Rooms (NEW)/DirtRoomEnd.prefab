@@ -159,6 +159,19 @@ MonoBehaviour:
   trapPlayer: 0
   currentVariation: 0
   lights: []
+--- !u!65 &5838996502753912251
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5917089431471348076}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 260.78708, y: 448.7635, z: 273.09445}
+  m_Center: {x: 0.9937476, y: 29.139967, z: -85.16218}
 --- !u!1 &7039968347300881701
 GameObject:
   m_ObjectHideFlags: 0
@@ -2680,6 +2693,11 @@ PrefabInstance:
 --- !u!1 &8686734736001119147 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2802685471271148334, guid: 08bfb3e94b9234b4f9eb54ef6b97895b, type: 3}
+  m_PrefabInstance: {fileID: 6802784689567787141}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5917089431471348076 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 897872040205627881, guid: 08bfb3e94b9234b4f9eb54ef6b97895b, type: 3}
   m_PrefabInstance: {fileID: 6802784689567787141}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &8342544043298056465 stripped
