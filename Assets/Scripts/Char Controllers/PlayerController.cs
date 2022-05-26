@@ -126,6 +126,7 @@ public class PlayerController : MonoBehaviour
         gameCamera.transform.localEulerAngles = new Vector3(65, -45, 0);
         cameraDestination = new Vector3(transform.position.x + 7, transform.position.y + 18, transform.position.z - 7);
         gameCamera.transform.position = Vector3.Lerp(gameCamera.transform.position, cameraDestination, cameraCatchUpSpeed);
+        Camera.main.fieldOfView = 40;
 
         //attack countdown
         if (attackTimer > 0)
