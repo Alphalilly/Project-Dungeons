@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!65 &2975358913861871120
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8738760153350893798}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 19.399235, y: 5.557702, z: 19.34444}
+  m_Center: {x: 0.15774202, y: 2.278851, z: -0.1541233}
 --- !u!114 &8906056182202183989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44,10 +57,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4703091214097772615}
+  - {fileID: 4907685818331300401}
   - {fileID: 8655987357552089342}
   - {fileID: 3511452163908055230}
-  - {fileID: 4907685818331300401}
-  - {fileID: 4703091214097772615}
   m_Father: {fileID: 8218366335397210716}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -98,7 +111,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4918290274541287723, guid: 029d05df1ae0a5c42a02cc2b73940645, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4918290274541287723, guid: 029d05df1ae0a5c42a02cc2b73940645, type: 3}
       propertyPath: m_LocalScale.x
@@ -216,14 +229,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 814c278e56be7634a8d59defbbb5cab1, type: 3}
---- !u!4 &8218366335397210716 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8537417326546884761, guid: 814c278e56be7634a8d59defbbb5cab1, type: 3}
-  m_PrefabInstance: {fileID: 321866021410878149}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8738760153350893798 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9021043754641375779, guid: 814c278e56be7634a8d59defbbb5cab1, type: 3}
+  m_PrefabInstance: {fileID: 321866021410878149}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8218366335397210716 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8537417326546884761, guid: 814c278e56be7634a8d59defbbb5cab1, type: 3}
   m_PrefabInstance: {fileID: 321866021410878149}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &333129217112591693
@@ -309,7 +322,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4918290274541287723, guid: 029d05df1ae0a5c42a02cc2b73940645, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4918290274541287723, guid: 029d05df1ae0a5c42a02cc2b73940645, type: 3}
       propertyPath: m_LocalScale.x
@@ -361,7 +374,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5695530012841272209, guid: 029d05df1ae0a5c42a02cc2b73940645, type: 3}
       propertyPath: m_Name
-      value: Door (3)
+      value: Door (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 029d05df1ae0a5c42a02cc2b73940645, type: 3}
@@ -808,7 +821,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4918290274541287723, guid: 029d05df1ae0a5c42a02cc2b73940645, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4918290274541287723, guid: 029d05df1ae0a5c42a02cc2b73940645, type: 3}
       propertyPath: m_LocalPosition.x
@@ -852,7 +865,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5695530012841272209, guid: 029d05df1ae0a5c42a02cc2b73940645, type: 3}
       propertyPath: m_Name
-      value: Door
+      value: Door (3)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 029d05df1ae0a5c42a02cc2b73940645, type: 3}
@@ -1092,7 +1105,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4918290274541287723, guid: 029d05df1ae0a5c42a02cc2b73940645, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4918290274541287723, guid: 029d05df1ae0a5c42a02cc2b73940645, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1136,7 +1149,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5695530012841272209, guid: 029d05df1ae0a5c42a02cc2b73940645, type: 3}
       propertyPath: m_Name
-      value: Door (1)
+      value: Door (4)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 029d05df1ae0a5c42a02cc2b73940645, type: 3}

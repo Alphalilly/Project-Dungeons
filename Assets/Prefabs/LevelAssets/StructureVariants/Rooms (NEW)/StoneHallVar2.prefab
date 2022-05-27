@@ -17,6 +17,19 @@ MonoBehaviour:
   trapPlayer: 0
   currentVariation: 0
   lights: []
+--- !u!65 &2693087933439311723
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652339626648413010}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 19.399235, y: 5.557702, z: 19.34444}
+  m_Center: {x: 0.15774202, y: 2.278851, z: -0.1541233}
 --- !u!1 &1535752025301490227
 GameObject:
   m_ObjectHideFlags: 0
