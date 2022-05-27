@@ -98,7 +98,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _Distance: 1
+    - _Distance: 2
     - _DstBlend: 0
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
@@ -126,6 +126,6 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _baseColour: {r: 0, g: 0.345884, b: 0.6431373, a: 0.29803923}
-    - _rippleColour: {r: 0.5784977, g: 0.74991775, b: 0.9811321, a: 0.5019608}
+    - _baseColour: {r: 0, g: 0.345884, b: 0.6431373, a: 0.2509804}
+    - _rippleColour: {r: 0.5784977, g: 0.74991775, b: 0.9811321, a: 0.29803923}
   m_BuildTextureStacks: []
