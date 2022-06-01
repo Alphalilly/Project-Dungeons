@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 5772155479501867064}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 5375209599369155627}
   - {fileID: 7643272588342567235}
@@ -96,7 +96,7 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   cam: {fileID: 0}
   availableDrops:
-  - {fileID: 4428007975566506854, guid: a7aeda2539ef7164d8565b6c7bae168a, type: 3}
+  - {fileID: 3733742603404462831, guid: eaa659980d981cd4980663bf31daf9b9, type: 3}
   itemDropChance: 100
 --- !u!54 &7762588276979746970
 Rigidbody:
