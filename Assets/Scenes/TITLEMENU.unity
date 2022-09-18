@@ -1346,8 +1346,24 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 857030315395967165, guid: 5bffb16854ed9f64c934b60164de3dbf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1151057219}
+    - target: {fileID: 857030315395967165, guid: 5bffb16854ed9f64c934b60164de3dbf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 857030315395967165, guid: 5bffb16854ed9f64c934b60164de3dbf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeGameStateToPause
+      objectReference: {fileID: 0}
+    - target: {fileID: 857030315395967165, guid: 5bffb16854ed9f64c934b60164de3dbf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LevelManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 857030315395967165, guid: 5bffb16854ed9f64c934b60164de3dbf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 970235282313133442, guid: 5bffb16854ed9f64c934b60164de3dbf, type: 3}
       propertyPath: m_Layer
@@ -3781,6 +3797,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54354f18c02cb2f4ca5113b6a1074238, type: 3}
+--- !u!114 &1151057219 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7676479151454655131, guid: 5bffb16854ed9f64c934b60164de3dbf, type: 3}
+  m_PrefabInstance: {fileID: 991280578}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86fde45ad31874948b58543c5fbef811, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1339992902
 PrefabInstance:
   m_ObjectHideFlags: 0
