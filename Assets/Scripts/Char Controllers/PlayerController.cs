@@ -69,6 +69,7 @@ public class PlayerController : MonoBehaviour
     private bool sprinting = false;
     private bool attacking = false;
     private bool blocking = false;
+    private bool interacting = false;
     private float actionBlend;
     private float actionBlendAcceleration = 10.0f;
     private float actionBlendDeceleration = 3.5f;
@@ -102,26 +103,17 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         //interact with object
-        if (Input.GetKeyDown(interactInput) && canMove)
+        if (interacting == true && canMove)
         {
             Interact();
+            interacting = false;
         }
-        else if (Input.GetKeyDown(KeyCode.E) && !canMove)
+        else if (interacting == true && !canMove)
         {
             canMove = true;
+            interacting = false;
             GameManager.manager.levelManager.StopReadingNote();
         }
-
-        InputToMobile();
-    }
-
-    private void InputToMobile()
-    {
-        // Sprinting
-        if (Input.GetKeyDown(sprintInput))
-        {
-            sprinting = true;
-        }       
     }
 
     // Update is called once per frame
@@ -256,6 +248,11 @@ public class PlayerController : MonoBehaviour
     public void MobileAttackButton()
     {
         attacking = true;
+    }
+
+    public void MobileInteractButton()
+    {
+        interacting = true;
     }
 
     private void UpdateWeaponAnimStates(string weaponName)
