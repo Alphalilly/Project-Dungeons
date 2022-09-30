@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
     private KeyCode jumpInput = KeyCode.Space;
     private KeyCode sprintInput = KeyCode.LeftShift;
     private KeyCode interactInput = KeyCode.E;
-    public bool sprinting = false;
+    private bool sprinting = false;
     private bool attacking = false;
     private bool blocking = false;
     private float actionBlend;
@@ -216,7 +216,7 @@ public class PlayerController : MonoBehaviour
         transform.Translate(moveDirection * moveIntensity * Time.deltaTime, Space.World);
 
         //blocking
-        //if (Input.GetMouseButton(blockButton) == true) { ActivateBlock(); }
+        if (blocking == true) { ActivateBlock(); }
         if (!IsBlocking()) { StopBlocking(); }
 
         //attacking
@@ -236,6 +236,16 @@ public class PlayerController : MonoBehaviour
     public void MobileRunButton()
     {
         sprinting = true;
+    }
+
+    public void MobileBlockButton()
+    {
+        blocking = true;
+    } 
+    
+    public void MobileBlockButtonStop()
+    {
+        blocking = false;
     }
 
     public void MobileRunButtonStop()
@@ -465,12 +475,13 @@ public class PlayerController : MonoBehaviour
     {
         if (IsAttacking()) { return; }
         actionBlend -= Time.deltaTime * actionBlendDeceleration;
+        blocking = false;
         animator.SetBool("Blocking", false);
     }
     
     public bool IsBlocking()
     {
-        if (Input.GetMouseButton(blockButton) == true) { return true; }
+        if (blocking == true) { return true; }
 
         return false;
     }
