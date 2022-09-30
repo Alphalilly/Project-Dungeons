@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
     private KeyCode jumpInput = KeyCode.Space;
     private KeyCode sprintInput = KeyCode.LeftShift;
     private KeyCode interactInput = KeyCode.E;
-    private bool sprinting = false;
+    public bool sprinting = false;
     private bool attacking = false;
     private bool blocking = false;
     private float actionBlend;
@@ -118,8 +118,11 @@ public class PlayerController : MonoBehaviour
     private void InputToMobile()
     {
         // Sprinting
-        if (Input.GetKeyDown(sprintInput)) sprinting = true;
-        else if (Input.GetKeyUp(sprintInput)) sprinting = false;
+        if (Input.GetKeyDown(sprintInput))
+        {
+            sprinting = true;
+        }
+        
 
         // 
 
@@ -238,7 +241,7 @@ public class PlayerController : MonoBehaviour
     {
         sprinting = true;
     }
-    
+
     public void MobileRunButtonStop()
     {
         sprinting = false;
@@ -394,7 +397,7 @@ public class PlayerController : MonoBehaviour
         if (movementMode == MovementMode.Jumping) { return; }
         if (isGrounded() == false) { return; }
         if (playerStats.Health <= playerStats.MaxHealth / 4) { movementMode = MovementMode.Running; return; }
-        if (IsBlocking()) { movementMode = MovementMode.Running; return; }
+        //if (IsBlocking()) { movementMode = MovementMode.Running; return; }
         if (playerStats.inWater) { movementMode = MovementMode.Running; return; }
 
         movementMode = MovementMode.Sprinting;
