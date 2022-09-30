@@ -121,11 +121,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(sprintInput))
         {
             sprinting = true;
-        }
-        
-
-        // 
-
+        }       
     }
 
     // Update is called once per frame
@@ -224,7 +220,7 @@ public class PlayerController : MonoBehaviour
         if (!IsBlocking()) { StopBlocking(); }
 
         //attacking
-        //if (Input.GetMouseButton(attackButton)){ ActivateAttack(); }
+        if (attacking == true){ ActivateAttack(); }
         if(!IsAttacking()) {StopAttacking(); }
 
         //movemonet/sprinting
@@ -245,6 +241,11 @@ public class PlayerController : MonoBehaviour
     public void MobileRunButtonStop()
     {
         sprinting = false;
+    }
+
+    public void MobileAttackButton()
+    {
+        attacking = true;
     }
 
     private void UpdateWeaponAnimStates(string weaponName)
@@ -391,7 +392,7 @@ public class PlayerController : MonoBehaviour
         return false;
     }
 
-    public void Sprint()
+    private void Sprint()
     {
         if (!IsMoving()) { return; }
         if (movementMode == MovementMode.Jumping) { return; }
@@ -442,6 +443,7 @@ public class PlayerController : MonoBehaviour
         if (playerStats.weaponHitAreaCollider.enabled == false) { return; }
         actionBlend -= Time.deltaTime * actionBlendDeceleration;
         playerStats.weaponHitAreaCollider.enabled = false;
+        attacking = false;
     }
 
     public bool IsAttacking()
