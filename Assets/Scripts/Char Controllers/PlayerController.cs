@@ -10,8 +10,10 @@ public class PlayerController : MonoBehaviour
     public LayerMask interactable;
     public int runSpeed = 5;
     public int sprintSpeed = 10;
-    public float joyStickHori;
-    public float joyStickVert;
+    public GameObject stepRayUpper;
+    public GameObject stepRayLower;
+    public float stepHeight = 0.3f;
+    public float stepSmooth = 0.1f;
     public enum MovementDirection
     {
         Forward,
@@ -82,6 +84,7 @@ public class PlayerController : MonoBehaviour
     Collider[] hitColInteraction;
     private bool canMove;
     private Vector3 cameraDestination;
+    private Vector3 targetPosition;
     private float cameraCatchUpSpeed = 0.0525f;
     [SerializeField] private float attackTimer;
     private float attackAnimDuration;
@@ -96,7 +99,8 @@ public class PlayerController : MonoBehaviour
         rb = this.GetComponent<Rigidbody>();
         movementMode = MovementMode.Idle;
         joystick = GameObject.FindWithTag("Joystick").GetComponent<FixedJoystick>();
-        canMove = true;       
+        canMove = true;
+        stepRayUpper.transform.position = new Vector3(stepRayUpper.transform.position.x, stepHeight, stepRayUpper.transform.position.z);
     }
 
     private void Update()
@@ -120,6 +124,8 @@ public class PlayerController : MonoBehaviour
     {
         EnableInteractionFeedbackWithinRange();
 
+        StepClimb();
+
         //player rotation
         if (moveDirection != Vector3.zero)
         {
@@ -137,6 +143,8 @@ public class PlayerController : MonoBehaviour
         {
             attackTimer -= Time.deltaTime; 
         }
+
+
 
         //animation movement controller
         {
@@ -487,6 +495,8 @@ public class PlayerController : MonoBehaviour
         /// Make sure body Layermask is set in PlayerController Inspector Body
         if (Physics.Raycast(this.transform.position, -this.transform.up, out rayHit, rayRange, ~body)) 
         {
+            Vector3 rayCastHitPoint = rayHit.point;
+            targetPosition.y = rayCastHitPoint.y;
             return true;
         }
         return false;
@@ -497,6 +507,21 @@ public class PlayerController : MonoBehaviour
         if (isGrounded() == true && movementMode == MovementMode.Jumping || isGrounded() == true && movementMode == MovementMode.Falling) 
         { 
             movementMode = MovementMode.Idle; 
+        }
+    }
+
+    void StepClimb()
+    {
+        RaycastHit hitLower;
+        if (Physics.Raycast(stepRayLower.transform.position, transform.TransformDirection(Vector3.forward), out hitLower, 1f))
+        {
+            Debug.Log("lowerray hit");
+            RaycastHit hitUpper;
+            if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(Vector3.forward), out hitUpper, 1.5f))
+            {
+                Debug.Log("upperray hit");
+                rb.position -= new Vector3(0f, -stepSmooth, 0f);
+            }
         }
     }
 }

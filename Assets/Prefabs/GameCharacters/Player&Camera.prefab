@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &468714852772116522
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1660567779160095341}
+  m_Layer: 3
+  m_Name: StepRayUpper
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1660567779160095341
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468714852772116522}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.7810003, z: 0.554}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4775209107842619093}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &6937200647671725983
 Animator:
   serializedVersion: 3
@@ -19,6 +49,36 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &3279832001964903944
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3695112424961056828}
+  m_Layer: 3
+  m_Name: StepRayLower
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3695112424961056828
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3279832001964903944}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.781, z: 0.554}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4775209107842619093}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4775209107463414706
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,6 +175,7 @@ GameObject:
   - component: {fileID: 4775209107842619115}
   - component: {fileID: 4775209107842619114}
   - component: {fileID: 4331089722898570111}
+  - component: {fileID: 4656075853729399997}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -135,6 +196,8 @@ Transform:
   m_Children:
   - {fileID: 2346951326113667297}
   - {fileID: 2554365967665477969}
+  - {fileID: 3695112424961056828}
+  - {fileID: 1660567779160095341}
   m_Father: {fileID: 4775209108049205542}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -176,10 +239,11 @@ MonoBehaviour:
     m_Bits: 64
   runSpeed: 5
   sprintSpeed: 10
-  joyStickHori: 0
-  joyStickVert: 0
+  stepRayUpper: {fileID: 468714852772116522}
+  stepRayLower: {fileID: 3279832001964903944}
+  stepHeight: 2
+  stepSmooth: 2
   interactionRadius: 7
-  sprinting: 0
   attackTimer: 0
 --- !u!114 &4775209107842619114
 MonoBehaviour:
@@ -219,8 +283,21 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 3.94, z: 1.7}
-  m_Center: {x: 0, y: 1.19, z: 0}
+  m_Size: {x: 1.5, y: 3.817601, z: 1.7}
+  m_Center: {x: 0, y: 1.2511996, z: 0}
+--- !u!135 &4656075853729399997
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4775209107842619092}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5633004
+  m_Center: {x: 0, y: -0.30367804, z: 0.05376661}
 --- !u!1 &4775209108903603522
 GameObject:
   m_ObjectHideFlags: 0
