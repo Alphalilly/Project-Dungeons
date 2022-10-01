@@ -50,7 +50,6 @@ public class PlayerController : MonoBehaviour
     // Mobile 
     private FixedJoystick joystick;
     //------------------------------
-
     private float maxInensity;
     private MovementMode movementMode;
     private Rigidbody rb;
