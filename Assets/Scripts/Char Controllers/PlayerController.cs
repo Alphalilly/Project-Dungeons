@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float interactionRadius = 7f;
 
     // Mobile 
-    private FixedJoystick joystick;
+    public FixedJoystick joystick;
     //------------------------------
     private float maxInensity;
     private MovementMode movementMode;
@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour
         playerStats = transform.GetComponent<PlayerStats>();
         rb = this.GetComponent<Rigidbody>();
         movementMode = MovementMode.Idle;
-        joystick = GameObject.FindWithTag("Joystick").GetComponent<FixedJoystick>();
+        //joystick = GameObject.FindWithTag("Joystick").GetComponent<FixedJoystick>();
         canMove = true;
         stepRayUpper.transform.position = new Vector3(stepRayUpper.transform.position.x, stepHeight, stepRayUpper.transform.position.z);
     }
