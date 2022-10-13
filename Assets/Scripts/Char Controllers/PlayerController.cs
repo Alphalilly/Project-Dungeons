@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public GameObject stepRayLower;
     public float stepHeight = 0.3f;
     public float stepSmooth = 0.1f;
+    public bool _attacking = false;
     public enum MovementDirection
     {
         Forward,
