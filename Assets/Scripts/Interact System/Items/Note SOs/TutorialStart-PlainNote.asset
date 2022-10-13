@@ -18,6 +18,7 @@ MonoBehaviour:
   shineColour: 4
   loadStory: 0
   message: "TO DO CHECK LIST FOR SOMEONE ELSE:\n\n - Fix those broken roof supports,
-    those dirty rats keep falling into the hideout!\n - Press E to interact with
-    glowing objects.\n - The W, A, S, D Keys will move you around.\n - Left Shift
-    will speed up your movement.\n\n Try interacting with items near by tables."
+    those dirty rats keep falling into the hideout!\n - Tap the [Hand Button] to
+    interact/stop interacting with glowing objects.\n - The [Joystick] will move
+    you around.\n - [Running Button] will speed up your movement.\n\n Try interacting
+    with items near by tables."

@@ -17,20 +17,8 @@ MonoBehaviour:
   sprite: {fileID: 0}
   shineColour: 4
   loadStory: 0
-  message: 'Interesting Things...
-
-
-    I''ve noticed certain things that are a lot
-    more interesting, interacting with them will... make things happen...
-
-    Messages
-    in a bottle often hold some sort of information.
-
-    Food is better eaten when
-    there''s something to fill.
-
-    BBQ fires can be a good rest from the dark of
-    the hideout, they''ll definately warm your spirits.
-
-
-'
+  message: "Interesting Things...\n\nI've noticed certain things that are a lot more
+    interesting, interacting with them will... make things happen...\n\n - Messages
+    in a bottle often hold some sort of information.\n - Food is better eaten when
+    there's something to fill.\n - BBQ fires can be a good rest from the dark of
+    the hideout, they'll  definately warm your spirits.\n\n"
