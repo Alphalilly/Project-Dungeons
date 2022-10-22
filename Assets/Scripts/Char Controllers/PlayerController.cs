@@ -125,7 +125,7 @@ public class PlayerController : MonoBehaviour
     {
         EnableInteractionFeedbackWithinRange();
 
-        StepClimb();
+        //StepClimb();
 
         //player rotation
         if (moveDirection != Vector3.zero)
