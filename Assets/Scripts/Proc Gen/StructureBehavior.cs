@@ -51,7 +51,7 @@ public class StructureBehavior : MonoBehaviour
         }
     }
 
-    private void OpenAvailableDoors()
+    public void OpenAvailableDoors()
     {
         if (dungeonGenerator == null) { return; }
         switch (currentStructureType)
