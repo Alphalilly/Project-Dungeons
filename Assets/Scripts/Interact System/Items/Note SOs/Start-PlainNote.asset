@@ -12,11 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a7cd9bd8eb0a244a8cc92ce506ea68, type: 3}
   m_Name: Start-PlainNote
   m_EditorClassIdentifier: 
+  nameOfItem: 
+  prefab: {fileID: 0}
+  sprite: {fileID: 0}
+  shineColour: 0
+  loadStory: 0
   message: 'July, 30th
 
 
-    Where am I? How did I get here? This is all so mysterious.
-    I need to find a way out of here!
+    Where am I? How did I get here?... I need to find a
+    way out of here!
 
 
 

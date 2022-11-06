@@ -22,4 +22,5 @@ MonoBehaviour:
     enemy attacks! [Shield Button] will block attacks! --{blocking an enemy attack
     will slightly increase the amount of time before they attack again}--\n\n       
     Once enemies are killed, they will drop any items they are holding; items will
-    be needed for Captain Catastrophea."
+    be needed for Captain Catastrophea.\n\n        Doors will shut well enemies are
+    alive. The doors will reopen when\nthe enemies are defeated."

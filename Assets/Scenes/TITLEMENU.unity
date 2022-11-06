@@ -580,6 +580,34 @@ PrefabInstance:
         animation clip 'Jumping'\n\tFrom animation clip 'Jump'\n\tFrom animation
         clip 'Falling Idle'\n\tFrom animation clip 'Punching'"
       objectReference: {fileID: 0}
+    - target: {fileID: 1190629151505450617, guid: 5bffb16854ed9f64c934b60164de3dbf, type: 3}
+      propertyPath: roomChance
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1190629151505450617, guid: 5bffb16854ed9f64c934b60164de3dbf, type: 3}
+      propertyPath: maxStructures
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1190629151505450617, guid: 5bffb16854ed9f64c934b60164de3dbf, type: 3}
+      propertyPath: minBranchLengthRange
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1190629151505450617, guid: 5bffb16854ed9f64c934b60164de3dbf, type: 3}
+      propertyPath: roomVariations.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1190629151505450617, guid: 5bffb16854ed9f64c934b60164de3dbf, type: 3}
+      propertyPath: hallwayVariations.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1190629151505450617, guid: 5bffb16854ed9f64c934b60164de3dbf, type: 3}
+      propertyPath: roomVariations.Array.data[1]
+      value: 
+      objectReference: {fileID: 8847580744792841526, guid: 41d49fff79d9a1844a1ce62a16ec3312, type: 3}
+    - target: {fileID: 1190629151505450617, guid: 5bffb16854ed9f64c934b60164de3dbf, type: 3}
+      propertyPath: roomVariations.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1221312156470026544, guid: 5bffb16854ed9f64c934b60164de3dbf, type: 3}
       propertyPath: m_Layer
       value: 3
