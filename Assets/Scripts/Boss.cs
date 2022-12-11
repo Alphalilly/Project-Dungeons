@@ -24,6 +24,7 @@ public class Boss : Enemy
         this.chasingSound = SoundManager.Sound.BossChasing;
         this.deathSound = SoundManager.Sound.BossDeath;
         this.idleSound = SoundManager.Sound.BossIdleRest;
+        this.savedMaterials = skinnedMeshRenderer.materials;
 
         InitEnemy();
     }

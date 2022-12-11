@@ -35,6 +35,8 @@ public class SkeletonEnemy : Enemy
         this.deathSound = SoundManager.Sound.SkeletonDeath;
         this.idleSound = SoundManager.Sound.SkeletonSteps;
 
+        this.savedMaterials = skinnedMeshRenderer.materials;
+
         this.rotationSpeed = 100.0f;
         walkDistance = Random.Range(5, 10);
         currentRotationDistance = Random.Range(45, 135);

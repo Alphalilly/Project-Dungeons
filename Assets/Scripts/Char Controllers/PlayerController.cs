@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public float stepHeight = 0.3f;
     public float stepSmooth = 0.1f;
     public bool _attacking = false;
+    public bool activeBattleCamera = false;
     public enum MovementDirection
     {
         Forward,
@@ -136,7 +137,17 @@ public class PlayerController : MonoBehaviour
 
         //Cam movement/placement
         gameCamera.transform.localEulerAngles = new Vector3(65, -45, 0);
-        cameraDestination = new Vector3(transform.position.x + 7, transform.position.y + 18, transform.position.z - 7);
+
+        //Battle Camera
+        if (activeBattleCamera)
+        {
+            cameraDestination = new Vector3(transform.position.x +2, transform.position.y+10, transform.position.z-2);
+        }
+        //Normal Camera
+        else
+        {
+            cameraDestination = new Vector3(transform.position.x + 7, transform.position.y + 18, transform.position.z - 7);
+        }
         gameCamera.transform.position = Vector3.Lerp(gameCamera.transform.position, cameraDestination, cameraCatchUpSpeed);
 
         //attack countdown

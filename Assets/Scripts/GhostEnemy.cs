@@ -40,6 +40,7 @@ public class GhostEnemy : Enemy
         this.chasingSound = SoundManager.Sound.GhostChasing;
         this.deathSound = SoundManager.Sound.GhostDeath;
         this.idleSound = SoundManager.Sound.GhostIdle;
+        this.savedMaterials = skinnedMeshRenderer.materials;
 
         InitEnemy();
     }

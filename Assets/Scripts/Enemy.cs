@@ -46,17 +46,21 @@ public class Enemy : CharacterStats
     protected float attackTimer;
     protected float stunnedTimer;
     protected float hitTimer;
+    protected float hitEffectTimer;
     protected float stunnedHitDuration;
     protected float dyingTimer;
+    protected float fadeOutTimer = 0.5f;
     protected float swingingTimer;
 
     protected Vector3 playerLocation;
     protected Vector3 enemyLocation;
     protected Ray enemySight;
     protected RaycastHit hitInfo;
+    protected Material[] savedMaterials;
 
     [SerializeField] private Image healthColour;
     [SerializeField] private Slider healthBar;
+    [SerializeField] private Canvas healthBarCanvas;
     [SerializeField] private Transform cam;
     [SerializeField] private GameObject[] availableDrops;
     [SerializeField] private int itemDropChance;
@@ -66,6 +70,10 @@ public class Enemy : CharacterStats
     protected SoundManager.Sound deathSound;
     protected SoundManager.Sound idleSound;
 
+    // Newly added
+    [SerializeField] protected SkinnedMeshRenderer skinnedMeshRenderer;
+    [SerializeField] protected Material[] enemyHitMat;
+
     public void Update()
     {
         UpdateHealth();
@@ -74,7 +82,7 @@ public class Enemy : CharacterStats
         enemySight = new Ray(new Vector3(transform.position.x, transform.position.y + 3, transform.position.z), transform.TransformDirection(Vector3.forward));
         enemyLocation = this.enemyNavMeshAgent.transform.position;
         playerLocation = GameManager.manager.playerStats.gameObject.transform.position;
-        distanceFromPlayer = Vector3.Distance(playerLocation, enemyLocation);
+        distanceFromPlayer = Vector3.Distance(playerLocation, enemyLocation);      
 
         //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * viewDistance, Color.white);
 
@@ -225,6 +233,8 @@ public class Enemy : CharacterStats
         hitTimer -= Time.deltaTime;
         attackTimer -= Time.deltaTime;
 
+        EnemyDamagedEffectHandler();
+
         if (this.hitTimer <= 0.0f)
         {
             //attackTimer = 0;
@@ -245,10 +255,16 @@ public class Enemy : CharacterStats
 
     void FadeOut()
     {
-        this.gameObject.SetActive(false);
-        DropItemOnDeath();
-
-
+        this.skinnedMeshRenderer.enabled = false;
+        this.gameObject.transform.GetChild(2).GetComponent<BattleRadius>().defeated = true;
+        this.healthBar.enabled = false;
+        this.healthBarCanvas.enabled = false;
+        fadeOutTimer -= Time.deltaTime;
+        if (fadeOutTimer <= 0.0f)
+        {
+            DropItemOnDeath();
+            this.gameObject.SetActive(false);
+        }
     }
 
     protected void SwitchState(State newState)
@@ -259,10 +275,23 @@ public class Enemy : CharacterStats
         //if (this.enemyType == "Zombie") Debug.LogError("Zombie STATE: " + newState);
     }
 
+    void EnemyDamagedEffectHandler()
+    {
+        skinnedMeshRenderer.materials = enemyHitMat;
+        hitEffectTimer -= Time.deltaTime;
+
+        // Damage Effect timers
+        if (hitEffectTimer <= 0.0f)
+        {
+            this.skinnedMeshRenderer.materials = savedMaterials;
+        }
+    }
+
     public void UpdateHealth()
     {
         healthBar.value = Health;
         healthBar.maxValue = maxHealth;
+        
 
         if (Health < maxHealth * 0.8 && Health > maxHealth * 0.6)
             healthColour.color = new Color32(167, 227, 16, 255);
@@ -284,6 +313,7 @@ public class Enemy : CharacterStats
         healthColour = transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Image>();
         healthBar = transform.GetChild(0).GetChild(0).GetComponent<Slider>();
         healthColour.color = new Color32(74, 227, 14, 255);
+        healthBarCanvas = transform.GetChild(0).GetComponent<Canvas>();
 
         // references
         cam = GameManager.manager.playerAndCamera.transform.GetChild(1);
@@ -306,6 +336,7 @@ public class Enemy : CharacterStats
         }
 
         if (hitTimer < 0.0f) this.hitTimer = 1.5f;
+        if (hitEffectTimer <= 0.0f) this.hitEffectTimer = 0.5f;
         if (currentAnimationState != "Swinging") SwitchState(State.Hit);
     }
 
@@ -320,7 +351,7 @@ public class Enemy : CharacterStats
         // ENTER CODE FOR DEATH ANIMATIONS, ETC
         //this.gameObject.SetActive(false);
 
-        this.dyingTimer = 4.0f;
+        this.dyingTimer = 1.5f;
         SwitchState(State.Dying);
         Debug.LogWarning("animation dying");
         SwitchAnimation("Dying");

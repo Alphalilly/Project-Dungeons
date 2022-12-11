@@ -22,6 +22,8 @@ public class ZombieEnemy : Enemy
         this.chasingSound = SoundManager.Sound.ZombieChasing;
         this.deathSound = SoundManager.Sound.ZombieDeath;
         this.idleSound = SoundManager.Sound.ZombieIdle;
+        this.savedMaterials = skinnedMeshRenderer.materials;
+
 
         turnAroundAngle = transform.localEulerAngles.y;
 

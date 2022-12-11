@@ -5,6 +5,8 @@ using UnityEngine;
 public class MobTrap : MonoBehaviour
 {
     public StructureBehavior structure;
+    public GameObject playerObj;
+    public PlayerController player;
     public List<GameObject> enemys = new List<GameObject>();
 
     // Start is called before the first frame update
@@ -19,6 +21,12 @@ public class MobTrap : MonoBehaviour
         if (structure == null)
         {
             structure = GetComponent<StructureBehavior>();
+        }
+
+        if (playerObj == null)
+        {
+            playerObj = GameObject.Find("Player");
+            player = playerObj.GetComponent<PlayerController>();
         }
     }
 

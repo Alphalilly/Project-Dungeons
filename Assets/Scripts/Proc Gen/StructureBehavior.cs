@@ -14,12 +14,17 @@ public class StructureBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        dungeonGenerator = GameManager.manager.levels[GameManager.manager.currentLevel].GetComponent<DungeonGenerator>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (dungeonGenerator == null)
+        {
+            dungeonGenerator = GameManager.manager.levels[GameManager.manager.currentLevel].GetComponent<DungeonGenerator>();
+        }
+
         switch (trapPlayer)
         {
             case true:
