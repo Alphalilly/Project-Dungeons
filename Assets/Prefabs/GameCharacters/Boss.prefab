@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3207351293047057244}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &8990317780210080507
 SphereCollider:
@@ -57,6 +57,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0df80dc2dd6534295619a4f90d0ccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defeated: 0
+  isBoss: 1
 --- !u!1 &5772155479501867064
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,8 +92,8 @@ Transform:
   m_Children:
   - {fileID: 5375209599369155627}
   - {fileID: 7643272588342567235}
-  - {fileID: 5225460072048838264}
   - {fileID: 6453956188800237896}
+  - {fileID: 5225460072048838264}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -152,10 +154,16 @@ MonoBehaviour:
   defaultWeapon: {fileID: 0}
   healthColour: {fileID: 0}
   healthBar: {fileID: 0}
+  healthBarCanvas: {fileID: 0}
   cam: {fileID: 0}
   availableDrops:
   - {fileID: 4428007975566506854, guid: a7aeda2539ef7164d8565b6c7bae168a, type: 3}
   itemDropChance: 100
+  skinnedMeshRenderer: {fileID: 8941528475352248636}
+  meshRenderer: {fileID: 0}
+  enemyHitMat:
+  - {fileID: 2100000, guid: 96c457e882164914b8a0e19e5bf205a7, type: 2}
+  enemyCollider: {fileID: 9038549325544848996}
 --- !u!54 &7762588276979746970
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -299,7 +307,7 @@ Transform:
   m_Children:
   - {fileID: 4652260120401543066}
   m_Father: {fileID: 3207351293047057244}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8307727531462306344
 MeshFilter:
@@ -631,6 +639,11 @@ PrefabInstance:
 --- !u!4 &7643272588342567235 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f453e5723b83c824a9f4b9d52963677e, type: 3}
+  m_PrefabInstance: {fileID: 7897311059581519528}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &8941528475352248636 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7958332957742598252, guid: f453e5723b83c824a9f4b9d52963677e, type: 3}
   m_PrefabInstance: {fileID: 7897311059581519528}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &4009477206009729899 stripped

@@ -146,12 +146,25 @@ MonoBehaviour:
   defaultWeapon: {fileID: 0}
   healthColour: {fileID: 0}
   healthBar: {fileID: 0}
+  healthBarCanvas: {fileID: 0}
   cam: {fileID: 0}
   availableDrops:
   - {fileID: 7588740963170934595, guid: 6d33f0c3a88d5bc49a6c0cf1a5cd5ed3, type: 3}
   - {fileID: 4166405968833009130, guid: d46dc7f9a61522540b34828b7830242f, type: 3}
   - {fileID: 1087364117351341910, guid: 2ae27301cb9a05a4997cfacc78540d76, type: 3}
   itemDropChance: 100
+  skinnedMeshRenderer: {fileID: 8050139908972729303}
+  meshRenderer: {fileID: 0}
+  enemyHitMat:
+  - {fileID: 2100000, guid: 96c457e882164914b8a0e19e5bf205a7, type: 2}
+  - {fileID: 2100000, guid: 96c457e882164914b8a0e19e5bf205a7, type: 2}
+  - {fileID: 2100000, guid: 96c457e882164914b8a0e19e5bf205a7, type: 2}
+  - {fileID: 2100000, guid: 96c457e882164914b8a0e19e5bf205a7, type: 2}
+  - {fileID: 2100000, guid: 96c457e882164914b8a0e19e5bf205a7, type: 2}
+  - {fileID: 2100000, guid: 96c457e882164914b8a0e19e5bf205a7, type: 2}
+  - {fileID: 2100000, guid: 96c457e882164914b8a0e19e5bf205a7, type: 2}
+  - {fileID: 2100000, guid: 96c457e882164914b8a0e19e5bf205a7, type: 2}
+  enemyCollider: {fileID: 5833049685018337358}
 --- !u!54 &5833049685018337354
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -244,6 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0df80dc2dd6534295619a4f90d0ccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defeated: 0
 --- !u!1001 &2636387648996641110
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -474,5 +488,10 @@ PrefabInstance:
 --- !u!4 &7491770716814156864 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e9a795c5b7a7b81478b1072203901366, type: 3}
+  m_PrefabInstance: {fileID: 6949798299744125867}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &8050139908972729303 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1136441079006957692, guid: e9a795c5b7a7b81478b1072203901366, type: 3}
   m_PrefabInstance: {fileID: 6949798299744125867}
   m_PrefabAsset: {fileID: 0}

@@ -25,8 +25,8 @@ public class Boss : Enemy
         this.deathSound = SoundManager.Sound.BossDeath;
         this.idleSound = SoundManager.Sound.BossIdleRest;
         this.savedMaterials = skinnedMeshRenderer.materials;
-
         InitEnemy();
+
     }
 
     public override void Idle()

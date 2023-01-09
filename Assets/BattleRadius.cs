@@ -5,6 +5,7 @@ using UnityEngine;
 public class BattleRadius : MonoBehaviour
 {
     public bool defeated = false;
+    public bool isBoss = false;
     GameObject playerObj;
     PlayerController player;
 
@@ -24,21 +25,49 @@ public class BattleRadius : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && defeated == false)
+        if (isBoss)
         {
-            player.activeBattleCamera = true;
+            if (other.gameObject.CompareTag("Player") && defeated == false)
+            {
+                player.activeBossCamera = true;
+            }
+
+            else if (other.gameObject.CompareTag("Player") && defeated == true)
+            {
+                player.activeBossCamera = false;
+            }
         }
-        else if (other.gameObject.CompareTag("Player") && defeated == true)
+
+        else
         {
-            player.activeBattleCamera = false;
-        }
+            if (other.gameObject.CompareTag("Player") && defeated == false)
+            {
+                player.activeBattleCamera = true;
+            }
+
+            else if (other.gameObject.CompareTag("Player") && defeated == true)
+            {
+                player.activeBattleCamera = false;
+            }
+        }    
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (isBoss)
         {
-            player.activeBattleCamera = false;
+            if (other.gameObject.CompareTag("Player"))
+            {
+                player.activeBossCamera = false;
+            }
         }
+
+        else
+        {
+            if (other.gameObject.CompareTag("Player"))
+            {
+                player.activeBattleCamera = false;
+            }
+        }        
     }
 }

@@ -17,6 +17,7 @@ public class ZombieEnemy : Enemy
         this.speed = 3.5f;
         this.attackDistance = 4.0f;
         this.enemyType = EnemyType.Skeleton;
+        this.fadeOutTimer = 1.2f;
 
         this.attackSound = SoundManager.Sound.ZombieAttack;
         this.chasingSound = SoundManager.Sound.ZombieChasing;

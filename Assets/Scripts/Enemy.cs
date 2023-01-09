@@ -14,7 +14,7 @@ public class Enemy : CharacterStats
         Stunned,
         Hit,
         Dying,
-        Swining
+        Swinging
     }
 
     protected enum EnemyType
@@ -49,8 +49,9 @@ public class Enemy : CharacterStats
     protected float hitEffectTimer;
     protected float stunnedHitDuration;
     protected float dyingTimer;
-    protected float fadeOutTimer = 0.5f;
+    protected float fadeOutTimer;
     protected float swingingTimer;
+    protected float swingingTimerReset;
 
     protected Vector3 playerLocation;
     protected Vector3 enemyLocation;
@@ -72,7 +73,9 @@ public class Enemy : CharacterStats
 
     // Newly added
     [SerializeField] protected SkinnedMeshRenderer skinnedMeshRenderer;
+    [SerializeField] protected MeshRenderer meshRenderer;
     [SerializeField] protected Material[] enemyHitMat;
+    [SerializeField] protected Collider enemyCollider;
 
     public void Update()
     {
@@ -82,7 +85,17 @@ public class Enemy : CharacterStats
         enemySight = new Ray(new Vector3(transform.position.x, transform.position.y + 3, transform.position.z), transform.TransformDirection(Vector3.forward));
         enemyLocation = this.enemyNavMeshAgent.transform.position;
         playerLocation = GameManager.manager.playerStats.gameObject.transform.position;
-        distanceFromPlayer = Vector3.Distance(playerLocation, enemyLocation);      
+        distanceFromPlayer = Vector3.Distance(playerLocation, enemyLocation);     
+        
+        if (skinnedMeshRenderer == null)
+        {
+            skinnedMeshRenderer = null;
+        }
+
+        if (meshRenderer == null)
+        {
+            meshRenderer = null;    
+        }
 
         //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * viewDistance, Color.white);
 
@@ -104,7 +117,7 @@ public class Enemy : CharacterStats
                 Attacking();
                 break;
 
-            case State.Swining:
+            case State.Swinging:
                 Swinging();
                 break;
 
@@ -177,21 +190,11 @@ public class Enemy : CharacterStats
             //SwitchAnimation("Swinging");
             //animator.Play("Swinging");
 
-            if (GameManager.manager.playerController.IsBlocking())
-            {
-                SwitchAnimation("Swinging");
-                this.stunnedTimer = 1.5f;
-                SwitchState(State.Stunned);
-            }
-            else // attack hits
-            {
-                //this.swingingTimer = 1.5f;
-                this.attackTimer = this.attackSpeed;
-                PlayAudio(this);
-                SwitchState(State.Swining);
-
-            }
-
+            //this.swingingTimer = 1.5f;
+            this.attackTimer = this.attackSpeed;
+            PlayAudio(this);
+            SwitchState(State.Swinging);
+            
         }
 
         
@@ -204,8 +207,25 @@ public class Enemy : CharacterStats
 
         if (this.swingingTimer <= 0.0f)
         {
-            if (distanceFromPlayer < attackDistance) GameManager.manager.playerStats.TakeDamage(damage, GameManager.manager.playerStats.GetComponent<Transform>());
+            if (GameManager.manager.playerController.IsBlocking())
+            {
+                //SwitchAnimation("Swinging");
+                this.stunnedTimer = 0.5f;
+                SwitchState(State.Stunned);
+                GameManager.manager.playerStats.TakeDamage((int)(damage / 4), GameManager.manager.playerStats.GetComponent<Transform>());
+                SoundManager.PlaySound(SoundManager.Sound.MetalClang, playerLocation);
+                attackTimer = attackSpeed;
+                swingingTimer = swingingTimerReset;
+                return;
+            }
+
+            else if (distanceFromPlayer < attackDistance)
+            {
+                GameManager.manager.playerStats.TakeDamage(damage, GameManager.manager.playerStats.GetComponent<Transform>());
+            }
+
             attackTimer = attackSpeed;
+            swingingTimer = swingingTimerReset;
             SwitchState(State.Attacking);
         }
     }
@@ -217,11 +237,6 @@ public class Enemy : CharacterStats
 
         if (this.stunnedTimer <= 0.0f)
         {
-            if (distanceFromPlayer < attackDistance) {
-                GameManager.manager.playerStats.TakeDamage((int)(damage / 4), GameManager.manager.playerStats.GetComponent<Transform>());
-                    SoundManager.PlaySound(SoundManager.Sound.MetalClang, playerLocation);
-            }
-
             attackTimer = attackSpeed;
             SwitchState(State.Attacking);
         }
@@ -229,7 +244,8 @@ public class Enemy : CharacterStats
 
     void Hit()
     {
-        if (animator.GetBool("Swinging") != true) SwitchAnimation("Hit");
+        if (currentAnimationState != "Swinging") SwitchAnimation("Hit");
+        if (currentAnimationState != "Stunned") SwitchAnimation("Hit");
         hitTimer -= Time.deltaTime;
         attackTimer -= Time.deltaTime;
 
@@ -255,12 +271,21 @@ public class Enemy : CharacterStats
 
     void FadeOut()
     {
-        this.skinnedMeshRenderer.enabled = false;
+        if (skinnedMeshRenderer != null)
+        {
+            this.skinnedMeshRenderer.enabled = false;
+        }
+
+        if (meshRenderer != null)
+        {
+            this.meshRenderer.enabled = false;
+        }
+
         this.gameObject.transform.GetChild(2).GetComponent<BattleRadius>().defeated = true;
         this.healthBar.enabled = false;
         this.healthBarCanvas.enabled = false;
-        fadeOutTimer -= Time.deltaTime;
-        if (fadeOutTimer <= 0.0f)
+        this.fadeOutTimer -= Time.deltaTime;
+        if (this.fadeOutTimer <= 0.0f)
         {
             DropItemOnDeath();
             this.gameObject.SetActive(false);
@@ -277,13 +302,29 @@ public class Enemy : CharacterStats
 
     void EnemyDamagedEffectHandler()
     {
-        skinnedMeshRenderer.materials = enemyHitMat;
+        if (skinnedMeshRenderer != null)
+        {
+            skinnedMeshRenderer.materials = enemyHitMat;
+        }
+
+        if (meshRenderer != null)
+        {
+            meshRenderer.materials = enemyHitMat;
+        }
         hitEffectTimer -= Time.deltaTime;
 
         // Damage Effect timers
         if (hitEffectTimer <= 0.0f)
         {
-            this.skinnedMeshRenderer.materials = savedMaterials;
+            if (skinnedMeshRenderer != null)
+            {
+                this.skinnedMeshRenderer.materials = savedMaterials;
+            }
+
+            if (meshRenderer != null)
+            {
+                this.meshRenderer.materials = savedMaterials;
+            }
         }
     }
 
@@ -345,8 +386,11 @@ public class Enemy : CharacterStats
         SoundManager.PlaySound(this.deathSound, enemyLocation); 
         base.Death();
 
-        //this is done because ghost has no death animation
-        if (enemyType == EnemyType.Ghost) { DropItemOnDeath(); transform.gameObject.SetActive(false); }
+        this.enemyCollider.enabled = false;
+
+        //this is done because ghost has no death animation 
+        //Give it an animation. Breaks camera code
+        
 
         // ENTER CODE FOR DEATH ANIMATIONS, ETC
         //this.gameObject.SetActive(false);

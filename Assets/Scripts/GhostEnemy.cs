@@ -35,14 +35,15 @@ public class GhostEnemy : Enemy
         bobDown = transform.position.y + 2;
         enemyNavMeshAgent.speed = speed;
         this.enemyType = EnemyType.Ghost;
+        this.fadeOutTimer = 0.05f;
 
         this.attackSound = SoundManager.Sound.GhostAttack;
         this.chasingSound = SoundManager.Sound.GhostChasing;
         this.deathSound = SoundManager.Sound.GhostDeath;
         this.idleSound = SoundManager.Sound.GhostIdle;
-        this.savedMaterials = skinnedMeshRenderer.materials;
-
+        this.savedMaterials = meshRenderer.materials;
         InitEnemy();
+
     }
 
     void Rotate() // || -90 > -0 > 0 > 90 > 180 > -180 > -90 ||

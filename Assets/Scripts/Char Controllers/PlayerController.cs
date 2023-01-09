@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public float stepSmooth = 0.1f;
     public bool _attacking = false;
     public bool activeBattleCamera = false;
+    public bool activeBossCamera = false;
     public enum MovementDirection
     {
         Forward,
@@ -119,6 +120,12 @@ public class PlayerController : MonoBehaviour
             interacting = false;
             GameManager.manager.levelManager.StopReadingNote();
         }
+
+        if (playerStats.IsAlive == false)
+        {
+            activeBossCamera = false;
+            activeBattleCamera = false;
+        }
     }
 
     // Update is called once per frame
@@ -139,9 +146,14 @@ public class PlayerController : MonoBehaviour
         gameCamera.transform.localEulerAngles = new Vector3(65, -45, 0);
 
         //Battle Camera
-        if (activeBattleCamera)
+        if (activeBossCamera)
         {
-            cameraDestination = new Vector3(transform.position.x +2, transform.position.y+10, transform.position.z-2);
+            cameraDestination = new Vector3(transform.position.x + 4, transform.position.y + 14, transform.position.z - 4);
+        }
+
+       else if (activeBattleCamera)
+        {
+            cameraDestination = new Vector3(transform.position.x + 2, transform.position.y + 10, transform.position.z - 2);
         }
         //Normal Camera
         else

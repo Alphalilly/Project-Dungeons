@@ -10,8 +10,11 @@ public class SkeletonEnemy : Enemy
     private float rotationSpeed;
 
     private const float caughtTimerConst = 1.5f;
-    private float caughtTimer;
     private const float walkTimerConst = 5.0f;
+    private const float swingingTimerConst = 0.8f;
+    private float caughtTimer;
+
+
     [SerializeField]
     private float walkTimer;
 
@@ -28,6 +31,7 @@ public class SkeletonEnemy : Enemy
         this.speed = 5.0f;
         this.attackDistance = 3;
         this.enemyType = EnemyType.Skeleton;
+        this.fadeOutTimer = 0.5f;
         this.hitTimer = 1.5f;
 
         this.attackSound = SoundManager.Sound.SkeletonAttack;
@@ -43,6 +47,7 @@ public class SkeletonEnemy : Enemy
 
         caughtTimer = caughtTimerConst;
         walkTimer = walkTimerConst;
+        swingingTimerReset = swingingTimerConst;
 
         walkToLocation = transform.position; // + (transform.forward * walkDistance);
 

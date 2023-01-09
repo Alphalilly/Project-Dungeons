@@ -73,8 +73,6 @@ GameObject:
   - component: {fileID: 9107361100649171575}
   - component: {fileID: 9107361100649171568}
   - component: {fileID: 9107361100649171578}
-  - component: {fileID: 5681798259369370079}
-  - component: {fileID: 6245640002398844629}
   m_Layer: 0
   m_Name: Skeleton
   m_TagString: Enemy
@@ -204,6 +202,7 @@ MonoBehaviour:
   defaultWeapon: {fileID: 0}
   healthColour: {fileID: 0}
   healthBar: {fileID: 0}
+  healthBarCanvas: {fileID: 0}
   cam: {fileID: 0}
   availableDrops:
   - {fileID: 8300489967171371579, guid: b53e6223002d3fc44b1df9d31930c35e, type: 3}
@@ -212,11 +211,13 @@ MonoBehaviour:
   - {fileID: 8300489967171371579, guid: b53e6223002d3fc44b1df9d31930c35e, type: 3}
   itemDropChance: 100
   skinnedMeshRenderer: {fileID: 6661385593055018885}
+  meshRenderer: {fileID: 0}
   enemyHitMat:
   - {fileID: 2100000, guid: 96c457e882164914b8a0e19e5bf205a7, type: 2}
   - {fileID: 2100000, guid: 96c457e882164914b8a0e19e5bf205a7, type: 2}
   - {fileID: 2100000, guid: 96c457e882164914b8a0e19e5bf205a7, type: 2}
   - {fileID: 2100000, guid: 96c457e882164914b8a0e19e5bf205a7, type: 2}
+  enemyCollider: {fileID: 9107361100649171574}
   walkDistance: 0
   currentRotationDistance: 0
   walkTimer: 0
@@ -237,33 +238,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 2
---- !u!65 &5681798259369370079
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9107361100649171569}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 4, y: 1, z: 2}
-  m_Center: {x: 0, y: 3, z: 0.5}
---- !u!136 &6245640002398844629
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9107361100649171569}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &2147800278855291188
 Animator:
   serializedVersion: 3
