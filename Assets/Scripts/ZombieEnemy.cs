@@ -5,12 +5,11 @@ using UnityEngine;
 public class ZombieEnemy : Enemy
 {
     private float turnAroundAngle;
-    
 
     void Start()
     {
         this.viewDistance = 10;
-        maxHealth = 75;
+        maxHealth = 30;
         this.health = maxHealth;
         this.attackSpeed = 3.0f;
         this.damage = 25;
@@ -27,8 +26,6 @@ public class ZombieEnemy : Enemy
 
 
         turnAroundAngle = transform.localEulerAngles.y;
-
-        
 
         InitEnemy();
     }
